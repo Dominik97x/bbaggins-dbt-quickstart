@@ -1,4 +1,10 @@
-with payment as (
+with source as(
+
+select* from {{ source('stripe', 'payments') }}
+
+), 
+
+payment as (
 
 select
     id as payment_id,
